@@ -84,7 +84,7 @@ include "koneksi.php";
       <div class="card shadow-lg p-4">
         <div class="text-center mb-3">
           <i class="bi bi-person-circle display-4"></i>
-          <h5 class="mt-2">FILMYou</h5>
+          <p>Welcome to Filmyou</p>
           <hr>
         </div>
 
