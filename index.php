@@ -11,7 +11,7 @@ include "koneksi.php";
   <title>FILMYou</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="ChatGPT Image 28 Okt 2025, 18.32.35.png">
+  <link rel="icon" href="img/logo.png">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -225,7 +225,7 @@ include "koneksi.php";
           <li class="nav-item"><a class="nav-link" href="#schedule">SCHEDULE</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">ABOUT ME</a></li>
           <li class="nav-item"><a class="nav-link" href="#kontak">KONTAK</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontak">LOGIN</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>
         </ul>
       </div>
     </div>
@@ -236,7 +236,7 @@ include "koneksi.php";
   <section id="Hero" class="text-center p-5 bg-success-subtle text-sm-start">
     <div class="container">
       <div class="d-sm-flex flex-sm-row-reverse align-items-">
-        <img src="ChatGPT Image 28 Okt 2025, 18.32.35.png" class="img-fluid rounded" width="400" alt="FILMYou">
+        <img src="img/logo.png" class="img-fluid rounded" width="400" alt="FILMYou">
         <div class="text-sm-start ms-sm-5">
           <h1 class="fw-bold display-5">Let's Make Memories With Me</h1>
           <h4 class="lead display-6">Temukan Film Favoritmu di Sini</h4>
@@ -292,40 +292,36 @@ include "koneksi.php";
     </section>
     <!-- Article end -->
 
-    <!-- Gallery Begin -->
-    <section id="gallery" class="text-center p-5 bg-success-subtle">
+    <!-- gallery begin -->
+    <section id="gallery" class="text-center p-5 bg-light">
       <div class="container">
-        <h1 class="fw-bold display-4 pb-3">GALLERY</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner rounded">
-            <div class="carousel-item active">
-              <img src="https://i.pinimg.com/1200x/e6/3e/21/e63e21ebdba9a10143215b990c0d06ce.jpg"
-               class="d-block w-100" alt="The Conjuring">
-            </div>
-            <div class="carousel-item">
-              <img src="https://i.pinimg.com/736x/d2/ef/60/d2ef60e7fd311aa1064a32c6b6a00f94.jpg"
-                class="d-block w-100" alt="Descendants of the Sun">
-            </div>
-            <div class="carousel-item">
-              <img src="https://i.pinimg.com/736x/83/53/70/8353703342039a08d878c5f98cee53ed.jpg"
-                class="d-block w-100" alt="Jangkrik Bos">
-            </div>
-            <div class="carousel-item">
-              <img src="https://i.pinimg.com/1200x/f3/f4/c6/f3f4c64663457d886bd7508b6950c433.jpg" class="d-block w-100" alt="John Wick">
+        <h1 class="fw-bold display-5 pb-4">Gallery</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+          <?php
+          $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+          $hasil = $conn->query($sql);
+
+          while ($row = $hasil->fetch_assoc()) {
+          ?>
+          <div class="col">
+            <div class="card h-100">
+              <img src="img/<?= $row['Gambar']; ?>" class="card-img-top" alt="gallery">
+              <div class="card-body">
+                <p class="card-text"><?= $row['Deskripsi']; ?></p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">
+                  <?= $row['tanggal']; ?><br>
+                  oleh : <?= $row['Username']; ?>
+                </small>
+              </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <?php } ?>
         </div>
       </div>
     </section>
-    <!-- Gallery End -->
+    <!-- gallery end -->
 
     <!-- Schedule Begin -->
     <section id="schedule" class="text-center p-5">
@@ -494,7 +490,7 @@ include "koneksi.php";
         <div class="row align-items-center">
           <!-- Gambar -->
           <div class="col-md-6 mb-4 mb-md-0">
-            <img src="ChatGPT Image 28 Okt 2025, 18.32.35.png"
+            <img src="img/logo.png"
               alt="Film You Logo"
               class="img-fluid rounded shadow"
               style="width: 100%; max-height: 400px; object-fit: cover;">
