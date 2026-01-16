@@ -30,6 +30,9 @@ include "koneksi.php";
     .bg-success-subtle {
       background-color: #d1e7dd !important;
     }
+      .bg-danger-subtle {
+      background-color: #973c4e !important;
+    }
 
     .card {
       background-color: #ffffff;
@@ -220,7 +223,7 @@ include "koneksi.php";
             </button>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">ARTICLE</a></li>
+          <li class="nav-item"><a class="nav-link" href="#article">ARTICLE</a></li>
           <li class="nav-item"><a class="nav-link" href="#gallery">GALLERY</a></li>
           <li class="nav-item"><a class="nav-link" href="#schedule">SCHEDULE</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">ABOUT ME</a></li>
@@ -252,9 +255,73 @@ include "koneksi.php";
   <html lang="en">
 
   <body>
+<!-- nama -->
+      <div class="d-flex justify-content-center mt-5">
+  <div class="profile-cute d-flex align-items-center gap-4 p-4 shadow-sm rounded-4">
+    <!-- FOTO LUCU -->
+    <div class="photo-ring">
+      <img src="img/laila.jpg" alt="Foto Mahasiswa">
+    </div>
+
+    <!-- TEKS -->
+    <div>
+      <p class="mb-1 text-dark small">Mahasiswa</p>
+      <h5 class="fw-bold mb-1">Noor Laila Lutfia Fajrin</h5>
+      <span class="text-muted">A11.2024.16068</span>
+    </div>
+
+  </div>
+</div>
+<style>
+.profile-cute {
+  max-width: 520px;
+  background: linear-gradient(135deg, #E9F5EE, #FDE2E4);
+}
+
+/* Ring luar */
+.photo-ring {
+  width: 150px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #7FD1B9, #F8B4B4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Foto */
+.photo-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .profile-cute {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+      </style>
+<!-- nama end -->
+
+<!-- DIVIDER -->
+<div class="section-divider"></div>
+</section>
+<style>
+    .section-divider {
+  height: 50px;
+  background: #fffff;
+  );
+}
+      </style>
 
     <!-- article begin -->
-    <section id="article" class="text-center p-5">
+    <section id="article" class="text-center p-5 bg-success-subtle">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">ARTICLE</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
@@ -293,9 +360,9 @@ include "koneksi.php";
     <!-- Article end -->
 
     <!-- gallery begin -->
-    <section id="gallery" class="text-center p-5 bg-light">
+    <section id="gallery" class="text-center p-5">
       <div class="container">
-        <h1 class="fw-bold display-5 pb-4">Gallery</h1>
+        <h1 class="fw-bold display-5 pb-4">GALLERY</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
           <?php
           $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
@@ -305,14 +372,14 @@ include "koneksi.php";
           ?>
           <div class="col">
             <div class="card h-100">
-              <img src="img/<?= $row['Gambar']; ?>" class="card-img-top" alt="gallery">
+              <img src="img/<?= $row['gambar']; ?>" class="card-img-top" alt="gallery">
               <div class="card-body">
-                <p class="card-text"><?= $row['Deskripsi']; ?></p>
+                <p class="card-text"><?= $row['deskripsi']; ?></p>
               </div>
               <div class="card-footer">
                 <small class="text-body-secondary">
                   <?= $row['tanggal']; ?><br>
-                  oleh : <?= $row['Username']; ?>
+                  oleh : <?= $row['username']; ?>
                 </small>
               </div>
             </div>
@@ -324,7 +391,7 @@ include "koneksi.php";
     <!-- gallery end -->
 
     <!-- Schedule Begin -->
-    <section id="schedule" class="text-center p-5">
+    <section id="schedule" class="text-center p-5 bg-success-subtle">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">SCHEDULE</h1>
 
@@ -415,7 +482,7 @@ include "koneksi.php";
     <!-- Schedule End -->
 
     <!-- About Me Begin -->
-    <section id="about" class="text-center p-5 bg-success-subtle">
+    <section id="about" class="text-center p-5">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">ABOUT ME</h1>
 
@@ -483,7 +550,7 @@ include "koneksi.php";
     <!-- About Me End -->
 
     <!-- Kontak Begin -->
-    <section id="kontak" class="text-center p-5">
+    <section id="kontak" class="text-center p-5 bg-success-subtle ">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">KONTAK</h1>
 
